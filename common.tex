@@ -1,0 +1,57 @@
+\documentclass[ignorenonframetext]{beamer}
+
+\mode<presentation>
+{
+  \usetheme{CambridgeUS}
+  \setbeamercovered{transparent}
+
+}
+
+\definecolor{debianred}{rgb}{.780,.000,.211} % 199,0,54
+\definecolor{debianblue}{rgb}{0,.208,.780} % 0,53,199
+\definecolor{debianlightbackgroundblue}{rgb}{.941,.941,.957} % 240,240,244
+\definecolor{debianbackgroundblue}{rgb}{.776,.784,.878} % 198,200,224
+
+\usecolortheme[named=debianbackgroundblue]{structure}
+\setbeamercolor{normal text}{fg=debianred}
+\setbeamercolor{titlelike}{fg=debianblue}
+\setbeamercolor{sidebar}{fg=debianred,bg=debianbackgroundblue}
+
+\setbeamercolor{palette sidebar primary}{fg=debianred}
+\setbeamercolor{palette sidebar secondary}{fg=debianred}
+\setbeamercolor{palette sidebar tertiary}{fg=debianred}
+\setbeamercolor{palette sidebar quaternary}{fg=debianred}
+
+\setbeamercolor{section in toc}{fg=debianred}
+\setbeamercolor{subsection in toc}{parent=debianred}
+
+\setbeamercolor{item}{fg=debianred}
+
+\setbeamercolor{block title}{fg=debianblue}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{../swirl-lightest}}
+
+\logo{\includegraphics[viewport=274 335 360 440,width=1cm]{../openlogo-nd}}
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times,mathptmx,eurosym}
+\usepackage[T1]{fontenc}
+\usepackage{color,array,colortbl}
+\defbeamertemplate*{footline}{JLTree theme}
+{
+  \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+  \end{beamercolorbox}
+  \hbox{%
+    \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,left]{author in head/foot}%
+      \usebeamerfont{author in head/foot}\hspace*{2ex}\insertshortauthor
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+      \usebeamerfont{title in head/foot}\insertshorttitle
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+      \usebeamerfont{date in head/foot}
+      \insertframenumber~/~\inserttotalframenumber \hspace*{2ex} 
+    \end{beamercolorbox}}%
+}
+\usepackage{graphicx}
