@@ -1,0 +1,6 @@
+[submodule "reveal.js"]
+	path = reveal.js
+	url = https://github.com/hakimel/reveal.js
+[submodule "Fork-Awesome"]
+	path = Fork-Awesome
+	url = https://github.com/ForkAwesome/Fork-Awesome
