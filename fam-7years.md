@@ -24,6 +24,9 @@ Three years ago, this talk was called
 Let's see what the three years brought us,  
 *besides* 30 new modules!
 
+Note:
+* No, I did not only do a `s/4/7/g`
+
 ---
 
 1. What happened in Foreman in regard to Ansible?
@@ -115,9 +118,19 @@ Note:
 * Installing from Ansible Galaxy meant `apypie` was not installed
 * We're now vendoring `apypie` to make installations easier
 
+Note:
+* Ansible doesn't allow to specify dependencies on anything but other collections
+* `bindep.txt` is only used for Execution Environments
+
 ---
 
 ## live tests
+
+* Turns out if you *only* test against recorded API responses, you miss changes
+* Added easy way to run tests in "live" mode (without recording)
+
+Note:
+* Not run by default in CI, but e.g. Satellite QE uses that mode
 
 ---
 
