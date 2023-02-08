@@ -58,24 +58,37 @@ Note:
 
 ---
 
-## New Modules
+## New Contributors
 
-* Can't avoid talking about these!
-* 15 `*_info` modules to fetch information about individual resources
-* `content_export_*` modules to manage exports of Katello/Pulp content
+* 50 new contributors!
+* 2019: 35, 2023: 85!
 
 Note:
-* Import ones are still missing
+* I guess we delivered on the "make contribution easy" promise?
+* But I still think it's harder than it should be
 
 ---
 
 ## New Modules
 
+* Can't avoid talking about these!
+* 15 `*_info` modules to fetch information about individual resources
+
+---
+
+## New Modules
+
+* `content_export_*`
 * `discovery_rule`
 * `puppetclasses_import`
 * `job_invocation`
 * `smart_proxy`
 * `http_proxy`
+
+Note:
+* `content_export_(library|repository|version|info)`
+* Import ones are still missing
+* content: Jeremy, discovery: Jeffrey, invocation: Peter Ondrejka, smart: James Stuart
 
 ---
 
@@ -103,6 +116,22 @@ Note:
 
 ---
 
+## New Collections
+
+* `pulp.squeezer` allows managing a Pulp3 instance
+
+Note:
+* The only reason I am in this room!
+
+---
+
+## Execution Environment
+
+* We provide metadata to build an EE
+* Makes it easy to run the code in an controlled environment
+
+---
+
 ## packages
 
 ```console
@@ -120,6 +149,7 @@ Note:
 
 Note:
 * Ansible doesn't allow to specify dependencies on anything but other collections
+* This is fine for packages, we can express things there
 * `bindep.txt` is only used for Execution Environments
 
 ---
@@ -144,7 +174,6 @@ Note:
 * we have simple GitHub workflow that runs this on every PR merge and release
 * (versioned) results visible on https://theforeman.org/plugins/foreman-ansible-modules/
 * Galaxy still does not show docs, but Automation Hub does
-
 
 Note:
 * much more stable than our old hacks ;-)
