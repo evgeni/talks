@@ -119,7 +119,6 @@ Note:
 
 * We use [antsibull-changelog](https://github.com/ansible-community/antsibull-changelog) for changelog generation
 * This directory holds snippets that will be used for the next release's changelog
-* We'll take care for you if needed
 * Example:
 
 ```yaml
@@ -129,6 +128,9 @@ bugfixes:
     (https://bugzilla.redhat.com/show_bug.cgi?id=2224122)
 
 ```
+
+Note:
+* We'll take care for you if needed
 
 ---
 
@@ -164,6 +166,20 @@ Note:
   * Inside the actual plugin files
   * Shared snippets in `doc_fragments`
 * Shared code in `module_utils`
+
+---
+
+## `plugins/module_utils/`
+
+* Shared code in `module_utils`?
+* Handling of HTTP connections
+* Parsing API description document
+* Handling common things
+  * `username`, `password`, `server_url`
+  * fetching, creating, comparing, updating, deleting
+
+Note:
+* A lot of sub-classes, e.g. for Katello specific modules that handle organizations differently
 
 ---
 
@@ -309,6 +325,104 @@ if __name__ == '__main__':
 * The [reality](https://github.com/theforeman/foreman-ansible-modules/blob/develop/plugins/modules/organization.py) is slightly more complicated
 * Documentation needs to be static strings (`ansible-doc` requirement)
 * Many modules have slightly more complex logic in the `run()` part
+
+---
+
+```python
+def main():
+    module = ForemanArchitectureModule(
+        argument_spec=dict(
+            updated_name=dict(),
+        ),
+        foreman_spec=dict(
+            name=dict(required=True),
+            operatingsystems=dict(type='entity_list'),
+        ),
+    )
+    with module.api_connection():
+        module.run()
+```
+
+---
+
+```python
+class KatelloProductModule(KatelloEntityAnsibleModule):
+    pass
+def main():
+    module = KatelloProductModule(
+        foreman_spec=dict(
+            name=dict(required=True),
+            label=dict(),
+            gpg_key=dict(type='entity', resource_type='content_credentials', scope=['organization'], no_log=False),
+            ssl_ca_cert=dict(type='entity', resource_type='content_credentials', scope=['organization']),
+            ssl_client_cert=dict(type='entity', resource_type='content_credentials', scope=['organization']),
+            ssl_client_key=dict(type='entity', resource_type='content_credentials', scope=['organization'], no_log=False),
+            sync_plan=dict(type='entity', scope=['organization']),
+            description=dict(),
+        ),
+    )
+```
+
+---
+
+# Development environment
+
+---
+
+## Python environment for users
+
+* Modules and dependencies are available as [RPM](https://github.com/theforeman/foreman-ansible-modules#installation-via-packages)
+* And from Ansible Galaxy (modules) / PyPI (dependencies)
+
+---
+
+## Python environment for developers
+
+* A devel setup has more dependencies
+* Using a virtualenv is highly recommended!
+
+```bash
+python3 -m venv ./venv
+source ./venv/bin/activate
+make test-setup
+```
+
+Note:
+
+`make test-setup` will ensure all required test dependencies are installed in the virtual environment and generate a configuration file that the tests use (more about that in the next section).
+
+You should now be able to execute `make test` to run the test-suite.
+
+Please be aware, that when you want to use the Python virtual environment for other playbooks, you will need to use the `bin/python` from the virtual environment as the `ansible_python_interpreter`, and not `/usr/bin/python`. The tests use an own inventory file, which sets `ansible_python_interpreter="/usr/bin/env python"`, to achieve that.
+
+---
+
+## Foreman/Katello environment
+
+* (re-)running existing tests (`make test`) uses recorded fixtures
+    * this is great to ensure API requests didn't change after refactoring
+    * real behavior changes will yield "cannot match request" errors
+* behavior changes require new recording
+    * need to run `make record_<testname>`
+    * requires running Foreman/Katello or Satellite
+
+---
+
+## Foreman/Katello environment
+
+* on Linux, the easiest way is [`forklift`](https://github.com/theforeman/forklift/#quickstart)
+* any instance that can be destroyed is fine
+* set URL and admin credentials in `tests/test_playbooks/vars/server.yml`
+
+Note:
+The main part of our tests are integration tests that are described as regular Ansible playbooks.
+When you execute `make test`, the tests are run against recorded fixtures using `VCRpy`, but when you want to re-record the fixtures because you changed how the module interacts with the API or added/adjusted a test you will require a working Foreman or Katello environment..
+
+Any other uptodate installation that you have admin permissions for will work too, but probably don't try to use your production setup.
+
+Whichever path you select, the URL and credentials for the environment need to be added to `tests/test_playbooks/vars/server.yml` (which `make test-setup` created earlier).
+
+Now you should be able to run `make record_<testname>` (e.g. `record_organization`) which should execute the `organization.yml` playbook against your environment and see the files under `tests/test_playbook/fixtures/<testname>-*` change.
 
 ---
 
