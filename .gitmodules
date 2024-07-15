@@ -4,3 +4,6 @@
 [submodule "Fork-Awesome"]
 	path = Fork-Awesome
 	url = https://github.com/ForkAwesome/Fork-Awesome
+[submodule "highlight.js"]
+	path = highlight.js
+	url = https://github.com/highlightjs/highlight.js
