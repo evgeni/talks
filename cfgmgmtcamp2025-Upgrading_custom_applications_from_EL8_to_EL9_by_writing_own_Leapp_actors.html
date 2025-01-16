@@ -20,6 +20,15 @@
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="highlight.js/src/styles/github.css">
+
+    <!-- Fix Mermaid styling in markdown, see https://github.com/zjffun/reveal.js-mermaid-plugin/issues/5 -->
+    <style type="text/css">
+      .mermaid .nodeLabel,
+      .mermaid .edgeLabel {
+        line-height: 0.9 !important;
+        vertical-align: super;
+      }
+    </style>
   </head>
 
   <body>
@@ -30,6 +39,7 @@
          data-separator="^\r?\n---\r?\n$"
          data-separator-vertical="^\n\n"
          data-separator-notes="^Note:"
+         data-element-attributes="{_\s*?([^}]+?)}"
          data-charset="utf-8">
 </section>
       </div>
@@ -38,11 +48,12 @@
     <script src="reveal.js/plugin/notes/notes.js"></script>
     <script src="reveal.js/plugin/markdown/markdown.js"></script>
     <script src="reveal.js/plugin/highlight/highlight.js"></script>
+    <script src="reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
     <script>
       Reveal.initialize({
         slideNumber: 'c/t',
         hash: true,
-        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMermaid ]
       });
     </script>
   </body>
