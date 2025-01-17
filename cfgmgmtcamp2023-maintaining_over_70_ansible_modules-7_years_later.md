@@ -1,3 +1,7 @@
+<!--
+date: 2023-02-07
+link: https://cfp.cfgmgmtcamp.org/2023/talk/SSAXCF/
+-->
 # Maintaining over 70 Ansible modules: <br/>7 years later
 
 ---

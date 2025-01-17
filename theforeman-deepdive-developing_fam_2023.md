@@ -1,3 +1,7 @@
+<!--
+date: 2023-12-14
+link: https://community.theforeman.org/t/deep-dive-foreman-ansible-modules-collection/35905
+-->
 # Deep Dive: Foreman Ansible Modules
 
 ---

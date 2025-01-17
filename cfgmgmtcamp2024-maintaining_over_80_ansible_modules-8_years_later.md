@@ -1,3 +1,7 @@
+<!--
+date: 2024-02-06
+link: https://cfp.cfgmgmtcamp.org/2024/talk/WBX9GH/
+-->
 # Maintaining over 80 Ansible modules: <br/>8 years later
 
 ---
