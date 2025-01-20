@@ -2,6 +2,7 @@
 
 import datetime
 import glob
+import re
 
 import yaml
 
@@ -18,7 +19,9 @@ def find_files():
                 metadata.update(yaml.safe_load(md[0].content.strip().removeprefix('<!--').removesuffix('-->')))
             for i in [0, 1]:
                 if md[i].type == 'heading_open' and 'title' not in metadata:
-                    metadata['title'] = md[i+1].content
+                    title = md[i+1].content
+                    title = re.sub('<[^<]+?>', '', title)
+                    metadata['title'] = title
 
         if 'date' not in metadata:
             metadata['date'] = datetime.date(1970, 1, 1)
