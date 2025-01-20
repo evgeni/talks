@@ -1,5 +1,6 @@
 <!--
 date: 2018-10-19
+link: https://www.youtube.com/watch?v=OGlsTDGhOH0
 -->
 # Katello and Ansible for automated testing and releasing of packages
 
