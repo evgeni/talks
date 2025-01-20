@@ -7,3 +7,6 @@
 [submodule "highlight.js"]
 	path = highlight.js
 	url = https://github.com/highlightjs/highlight.js
+[submodule "reveal.js-mermaid-plugin"]
+	path = reveal.js-mermaid-plugin
+	url = https://github.com/zjffun/reveal.js-mermaid-plugin

@@ -165,17 +165,17 @@ All packages are tested daily together:
 
 ---
 
-```flow
-st=>start: MR
-e=>end: release
-merge=>operation: merge
-rpm=>operation: RPM build
-forklift=>operation: integration test
-promotetest=>operation: release as nightly
-promoteqa=>operation: release to qa (weekly)
-
-st->rpm->forklift->promotetest->promoteqa->e
-```
+<div class="mermaid">
+  <pre>
+graph TD
+  st((MR));
+  st --> rpm[RPM build];
+  rpm --> forklift[integration test];
+  forklift --> promotetest[release as nightly];
+  promotetest --> promoteqa[release to qa -- weekly];
+  promoteqa --> release(release);
+  </pre>
+</div>
 
 ---
 
