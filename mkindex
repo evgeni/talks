@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import datetime
 import glob
 
 import yaml
@@ -18,6 +19,9 @@ def find_files():
             for i in [0, 1]:
                 if md[i].type == 'heading_open' and 'title' not in metadata:
                     metadata['title'] = md[i+1].content
+
+        if 'date' not in metadata:
+            metadata['date'] = datetime.date(1970, 1, 1)
 
         yield metadata
 
