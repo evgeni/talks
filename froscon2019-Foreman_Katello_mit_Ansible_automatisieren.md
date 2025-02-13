@@ -1,6 +1,7 @@
 <!--
 date: 2019-08-11
 link: https://programm.froscon.org/2019/events/2418.html
+video: https://media.ccc.de/v/froscon2019-2418-foreman_katello_mit_ansible_automatisieren
 -->
 # Foreman/Katello mit Ansible automatisieren
 

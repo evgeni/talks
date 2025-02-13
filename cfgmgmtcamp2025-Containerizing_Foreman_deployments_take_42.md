@@ -1,6 +1,7 @@
 <!--
 date: 2025-02-04
 link: https://cfp.cfgmgmtcamp.org/ghent2025/talk/WLFEVJ/
+video: https://www.youtube.com/watch?v=RTpnsllENmw
 -->
 # Containerizing Foreman deployments
 ## take #42

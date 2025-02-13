@@ -1,6 +1,7 @@
 <!--
 date: 2025-02-03
 link: https://cfp.cfgmgmtcamp.org/ghent2025/talk/XH77AU/
+video: https://www.youtube.com/watch?v=c5T8qxgWnAA
 -->
 # Upgrading custom applications from EL8 to EL9 by writing own Leapp actors
 

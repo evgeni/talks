@@ -1,6 +1,7 @@
 <!--
 date: 2018-10-19
-link: https://www.youtube.com/watch?v=OGlsTDGhOH0
+link: https://atix.de/en/blog/osad-2018-the-open-source-conference-with-stars/
+video: https://www.youtube.com/watch?v=OGlsTDGhOH0
 -->
 # Katello and Ansible for automated testing and releasing of packages
 
