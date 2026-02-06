@@ -42,5 +42,5 @@ HEAD = """
 </head>
 """
 print(HEAD.strip())
-for f in sorted(find_files(), key=lambda f: f['date'], reverse=True):
+for f in sorted(find_files(), key=lambda f: f"{f['date']}-{f['title']}", reverse=True):
     print(f"<a href='{f['slides']}'>{f['date']} - {f['title']}</a><br>")
