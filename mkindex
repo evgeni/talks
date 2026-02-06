@@ -11,7 +11,7 @@ from markdown_it import MarkdownIt
 
 def find_files():
     for md_file in glob.iglob('*.md'):
-        metadata = {'filename': md_file, 'html': md_file.replace('.md', '.html') }
+        metadata = {'filename': md_file, 'slides': md_file.replace('.md', '.html') }
 
         with open(md_file) as md_content:
             md = MarkdownIt().parse(md_content.read())
@@ -28,6 +28,19 @@ def find_files():
 
         yield metadata
 
+    for yaml_file in glob.iglob('*.yaml'):
+        with open(yaml_file) as f:
+            metadata = yaml.safe_load(f)
+        yield metadata
 
+
+HEAD = """
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+"""
+print(HEAD.strip())
 for f in sorted(find_files(), key=lambda f: f['date'], reverse=True):
-    print(f"<a href='{f['html']}'>{f['date']} - {f['title']}</a><br>")
+    print(f"<a href='{f['slides']}'>{f['date']} - {f['title']}</a><br>")
