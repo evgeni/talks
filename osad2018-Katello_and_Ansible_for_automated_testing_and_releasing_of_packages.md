@@ -1,5 +1,6 @@
 <!--
 date: 2018-10-19
+event: Open Source Automation Days 2018
 link: https://atix.de/en/blog/osad-2018-the-open-source-conference-with-stars/
 video: https://www.youtube.com/watch?v=OGlsTDGhOH0
 -->

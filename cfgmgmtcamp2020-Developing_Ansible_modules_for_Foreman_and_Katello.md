@@ -1,5 +1,6 @@
 <!--
 date: 2020-02-04
+event: cfgmgmtcamp 2020
 link: https://cfp.cfgmgmtcamp.org/2020/talk/KZCMLR/
 -->
 # Developing Ansible modules for Foreman and Katello

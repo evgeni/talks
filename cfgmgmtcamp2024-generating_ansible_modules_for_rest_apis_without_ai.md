@@ -1,5 +1,6 @@
 <!--
 date: 2024-02-06
+event: cfgmgmtcamp 2024
 link: https://cfp.cfgmgmtcamp.org/2024/talk/GPTL7N/
 -->
 # Generating Ansible modules for REST APIs without AI

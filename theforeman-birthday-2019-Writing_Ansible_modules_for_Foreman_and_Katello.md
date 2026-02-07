@@ -1,5 +1,6 @@
 <!--
 date: 2019-07-25
+event: The Foreman Birthday Event 2019
 link: https://community.theforeman.org/t/foreman-birthday-party/13731
 -->
 # Writing Ansible modules for Foreman and Katello

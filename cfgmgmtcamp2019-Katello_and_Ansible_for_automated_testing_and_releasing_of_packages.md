@@ -1,5 +1,6 @@
 <!--
 date: 2019-02-05
+event: cfgmgmtcamp 2019
 link: https://cfgmgmtcamp.org/ghent2019/schedule/tuesday/katansi/
 -->
 # Katello and Ansible for automated testing and releasing of packages

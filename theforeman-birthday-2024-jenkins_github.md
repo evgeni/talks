@@ -1,5 +1,6 @@
 <!--
 date: 2024-07-15
+event: The Foreman Birthday Event 2024
 link: https://community.theforeman.org/t/foreman-birthday-event-2024-celebrate-the-15th-birthday/37370
 -->
 # From Jenkins to GitHub Actions

@@ -1,5 +1,6 @@
 <!--
 date: 2025-02-03
+event: cfgmgmtcamp 2025
 link: https://cfp.cfgmgmtcamp.org/ghent2025/talk/XH77AU/
 video: https://www.youtube.com/watch?v=c5T8qxgWnAA
 -->

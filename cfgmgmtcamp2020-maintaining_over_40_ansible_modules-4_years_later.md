@@ -1,5 +1,6 @@
 <!--
 date: 2020-02-03
+event: cfgmgmtcamp 2020
 link: https://cfp.cfgmgmtcamp.org/2020/talk/U7CGMZ/
 -->
 # Maintaining over 40 Ansible modules: ~~3~~ 4 years later

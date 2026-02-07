@@ -1,5 +1,6 @@
 <!--
 date: 2017-07-27
+event: The Foreman Birthday Event 2017
 link: https://blog.netways.de/blog/2017/08/11/foremans-8th-birthday-recap/
 -->
 # Mass-Migration of 5000 Servers to Foreman/Katello with bootstrap.py

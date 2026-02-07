@@ -1,5 +1,6 @@
 <!--
 date: 2022-02-05
+event: FOSDEM 2022
 link: https://archive.fosdem.org/2022/schedule/event/foreman_katello_leapp_elevate/
 video: https://video.fosdem.org/2022/D.infra/foreman_katello_leapp_elevate.mp4
 -->

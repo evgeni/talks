@@ -1,5 +1,6 @@
 <!--
 date: 2021-02-06
+event: FOSDEM 2021
 link: https://archive.fosdem.org/2021/schedule/event/yourmanagementlayershouldbecattletoo/
 video: https://video.fosdem.org/2021/D.infra/yourmanagementlayershouldbecattletoo.mp4
 -->
