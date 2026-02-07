@@ -1,6 +1,7 @@
 <!--
 date: 2021-02-06
 link: https://archive.fosdem.org/2021/schedule/event/yourmanagementlayershouldbecattletoo/
+video: https://video.fosdem.org/2021/D.infra/yourmanagementlayershouldbecattletoo.mp4
 -->
 # your management layer should be cattle too
 

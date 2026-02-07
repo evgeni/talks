@@ -1,6 +1,7 @@
 <!--
 date: 2022-02-05
 link: https://archive.fosdem.org/2022/schedule/event/foreman_katello_leapp_elevate/
+video: https://video.fosdem.org/2022/D.infra/foreman_katello_leapp_elevate.mp4
 -->
 # Migrating Foreman from EL7 to EL8 using LEAPP/ELevate
 
