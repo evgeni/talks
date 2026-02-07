@@ -39,8 +39,13 @@ HEAD = """
 </head>
 """
 print(HEAD.strip())
-for f in sorted(find_files(), key=lambda f: f"{f['date']}-{f['title']}", reverse=True):
-    link_text = f"{f['date']} - {f['title']}"
-    if f.get('event') is not None:
-        link_text += f" ({f['event']})"
-    print(f"<a href='{f['slides']}'>{link_text}</a><br>")
+
+talks = sorted(find_files(), key=lambda f: f"{f['date']}-{f['title']}", reverse=True)
+for talk in talks:
+    link_text = f"{talk['date']} - {talk['title']}"
+    if talk.get('event') is not None:
+        link_text += f" ({talk['event']})"
+    print(f"<a href='{talk['slides']}'>{link_text}</a>")
+    if talk.get('video'):
+        print(f" (<a href='{talk['video']}'>Video</a>)")
+    print("<br>")
