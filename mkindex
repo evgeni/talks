@@ -47,10 +47,12 @@ for year, talks in itertools.groupby(all_talks, key=lambda f: f['date'].year):
     print("<ul>")
     for talk in talks:
         link_text = f"{talk['date']} - {talk['title']}"
-        if talk.get('event') is not None:
-            link_text += f" ({talk['event']})"
         print("<li>")
         print(f"<a href='{talk['slides']}'>{link_text}</a>")
+        if talk.get('link'):
+            print(f" (<a href='{talk['link']}'>{talk.get('event', 'Event')}</a>)")
+        elif talk.get('event'):
+             print(f" ({talk['event']})")
         if talk.get('video'):
             print(f" (<a href='{talk['video']}'>Video</a>)")
         print("</li>")
