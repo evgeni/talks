@@ -11,7 +11,7 @@ from markdown_it import MarkdownIt
 
 def find_files():
     for md_file in glob.iglob('*.md'):
-        metadata = {'filename': md_file, 'slides': md_file.replace('.md', '.html') }
+        metadata = {'slides': md_file.replace('.md', '.html')}
 
         with open(md_file) as md_content:
             md = MarkdownIt().parse(md_content.read())
@@ -22,9 +22,6 @@ def find_files():
                     title = md[i+1].content
                     title = re.sub('<[^<]+?>', '', title)
                     metadata['title'] = title
-
-        if 'date' not in metadata:
-            metadata['date'] = datetime.date(1970, 1, 1)
 
         yield metadata
 
