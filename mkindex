@@ -4,10 +4,20 @@ import datetime
 import glob
 import itertools
 import re
+import sys
 
 import yaml
 
 from markdown_it import MarkdownIt
+
+
+HTML_HEAD = """
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+"""
 
 
 def find_files():
@@ -32,28 +42,30 @@ def find_files():
         yield metadata
 
 
-HEAD = """
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-</head>
-"""
-print(HEAD.strip())
+def build_index(all_talks, output='html'):
+    text = ""
+    for year, talks in itertools.groupby(all_talks, key=lambda f: f['date'].year):
+        text += f"# {year}\n"
+        for talk in talks:
+            link_text = f"{talk['date']} - {talk['title']}"
+            text += f"* [{link_text}]({talk['slides']})"
+            if talk.get('link'):
+                text += f" ([{talk.get('event', 'Event')}]({talk['link']}))"
+            elif talk.get('event'):
+                text += f" ({talk['event']})"
+            if talk.get('video'):
+                text += f" ([Video]({talk['video']}))"
+            text += "\n"
 
-all_talks = sorted(find_files(), key=lambda f: f"{f['date']}-{f['title']}", reverse=True)
-for year, talks in itertools.groupby(all_talks, key=lambda f: f['date'].year):
-    print(f"<h1>{year}</h1>")
-    print("<ul>")
-    for talk in talks:
-        link_text = f"{talk['date']} - {talk['title']}"
-        print("<li>")
-        print(f"<a href='{talk['slides']}'>{link_text}</a>")
-        if talk.get('link'):
-            print(f" (<a href='{talk['link']}'>{talk.get('event', 'Event')}</a>)")
-        elif talk.get('event'):
-             print(f" ({talk['event']})")
-        if talk.get('video'):
-            print(f" (<a href='{talk['video']}'>Video</a>)")
-        print("</li>")
-    print("</ul>")
+    if output == 'html':
+        print(HTML_HEAD.strip())
+        print(MarkdownIt().render(text))
+    else:
+        print(text)
+
+if len(sys.argv) == 2:
+    output = sys.argv[1]
+else:
+    output = 'html'
+
+build_index(sorted(find_files(), key=lambda f: f"{f['date']}-{f['title']}", reverse=True), output)
